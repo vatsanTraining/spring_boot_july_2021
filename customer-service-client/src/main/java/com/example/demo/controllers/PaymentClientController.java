@@ -20,7 +20,7 @@ public class PaymentClientController {
 		
 		   return  client.get()
 				     .uri("http://PAYMENT-SERVICE/api/v1/payments")
-				      .headers(headers -> headers.setBasicAuth("india","india"))
+				      .headers(headers -> headers.setBasicAuth("nepal","nepal"))
 				        .retrieve()
 				        .onStatus(HttpStatus::is5xxServerError, clientResponse ->
 				        Mono.error(new RuntimeException()))
