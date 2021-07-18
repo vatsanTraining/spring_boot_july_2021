@@ -26,7 +26,7 @@ public class MyInfoEndPoint implements InfoContributor {
 		 
 	     Date  date=new Date(ctx.getStartupDate());
 	     
-	      HashMap<String, String> details = new HashMap<>();
+	      HashMap<String, Object> details = new HashMap<>();
 	     
 	      details.put("beanCount", Integer.toString(beanCount));
 	      details.put("startUpdate", date.toString());
@@ -34,6 +34,8 @@ public class MyInfoEndPoint implements InfoContributor {
 	      
 	      
 	      details.put("os", env.getProperty("os.name"));
+	      
+	      builder.withDetails(details);
 	}
 
 }

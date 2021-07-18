@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 
 @RequestMapping(path = "/api/v1")
+
 public class CustomerController {
 
 	
@@ -18,6 +19,7 @@ public class CustomerController {
 	@GetMapping(path = "/customers")
 	public String getCustomer() {
 		
+		 
 		return "Ramesh,Suresh,Magesh" +":"+ this.portNumber;
 	}
 }
