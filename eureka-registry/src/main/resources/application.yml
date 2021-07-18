@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: eureka-clustered  config:    activate:      on-profile:      -  peer1
+
+server:
+  port: 8765
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka-peer2:8770/eureka
+  instance:
+    prefer-ip-address:  true
+    hostname: eureka-peer1
+    appname: eureka-clustered
+
+---
+
+spring:  config:    activate:      on-profile:      - peer2    
+      
+server:
+  port: 8770
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka-peer1:8765/eureka
+  instance:
+    prefer-ip-address:  true
+    hostname: eureka-peer2
+    appname: eureka-clustered
+      
