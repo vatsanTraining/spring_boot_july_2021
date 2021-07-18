@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
 		auth.inMemoryAuthentication().withUser("india").password(encoder.encode("india")).roles("ADMIN")
-		          .and().withUser("nepal").password(encoder.encode("nepal")).roles("ADMIN");
+		          .and().withUser("nepal").password(encoder.encode("nepal")).roles("USER");
 		
 	}
 
