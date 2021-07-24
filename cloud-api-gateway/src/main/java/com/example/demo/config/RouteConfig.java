@@ -7,13 +7,17 @@ import org.springframework.context.annotation.Configuration;
 
 import com.example.demo.filters.AuthorizeFilter;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Configuration
+@Slf4j
 public class RouteConfig {
 
 	
 	@Bean
 	public RouteLocator gateWayRoutes(RouteLocatorBuilder builder,AuthorizeFilter authFilter) {
 		
+		log.info("Route Locator configuration called");
 		 return builder.routes()
 		           .route(p -> p.path("/api/v1/customers/**")
 		                    .uri("lb://AGENT-SERVICE"))

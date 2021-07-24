@@ -15,7 +15,10 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.demo.entity.Image;
 import com.example.demo.repos.ImageRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
+@Slf4j
 public class ImageController {
 
 	ImageRepository repo;
@@ -59,11 +62,16 @@ public class ImageController {
 	
 	@GetMapping(value = "/file/image/{id}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE})
 	public byte[] fetchImage(@PathVariable String id){
+		
+		log.info("Fetch Image Called......." );
 	    byte[] data = null;
 	    Image file = repo.findById(id).get();
 	        if(file != null){
 	        data = file.getContent();
 	    }
+	        
+	        log.info("Fetch Image completed");
+	        
 	    return data;
 	}
 }

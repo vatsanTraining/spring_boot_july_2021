@@ -4,7 +4,12 @@ spring:
     username: root
     password: srivatsan
     driver-class-name: com.mysql.cj.jdbc.Driver
-    
+  application:    name: image-service  
+  zipkin:
+    base-url: http://localhost:9411    enabled: true
+  sleuth:
+    sampler:
+      probability: 1.0
 
   jpa:
     hibernate:
