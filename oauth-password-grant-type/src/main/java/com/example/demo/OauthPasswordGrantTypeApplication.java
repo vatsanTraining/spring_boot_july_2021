@@ -23,6 +23,12 @@ public class OauthPasswordGrantTypeApplication {
 	}
 	
 	@Bean
+	public Customer suresh() {
+		
+		return new Customer(112,"Suresh Patil",4505050);
+	}
+	
+	@Bean
 	public BCryptPasswordEncoder encoder() {
 		
 		return new BCryptPasswordEncoder();
