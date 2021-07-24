@@ -26,7 +26,8 @@ public class ImageController {
 	}
 	
 	@PostMapping(path = "/file/uploadImage")
-	public ResponseEntity<String> uploadImage(@RequestParam(value = "id") String id,@RequestParam(value = "image") MultipartFile file){
+	public ResponseEntity<String> uploadImage(@RequestParam(value = "id") String id,
+			       @RequestParam(value = "image") MultipartFile file){
 		
         ResponseEntity<String> resp=null;
 

@@ -15,6 +15,7 @@ public class RouteConfig {
 		 return builder.routes()
 		           .route(p -> p.path("/api/v1/customers/**")
 		                    .uri("lb://AGENT-SERVICE"))
+		            .route(p-> p.path("/file/image/**").uri("http://localhost:4042"))
 		                .build();		
 	}
 }
