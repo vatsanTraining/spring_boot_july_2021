@@ -3,6 +3,7 @@ package com.example.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
@@ -17,6 +18,7 @@ public class OauthPasswordGrantTypeApplication {
 	}
 
 	@Bean
+	@Primary
 	public Customer ramesh() {
 		
 		return new Customer(110,"Ramesh Patil",4505050);
