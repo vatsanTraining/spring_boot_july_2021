@@ -3,6 +3,6 @@ server:
   
 spring:
   security:    oauth2:      client:        registration:          github:
-            client-id: ec2c6ff6db9562bb7a54 
-            client-secret: 2d104892448194a4a2cb46f9ee273a40d62ecb03
+            client-id:  
+            client-secret: 
     
