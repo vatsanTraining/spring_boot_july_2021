@@ -20,7 +20,7 @@ public class ClientController {
 	public Flux<String> getCustomers(){
 		
 		   return  client.get()
-				     .uri("http://CUSTOMER-SERVICE/api/v1/customers",101)
+				     .uri("http://AGENT-SERVICE/api/v1/customers",101)
 				      .retrieve()
 				        .bodyToFlux(String.class);
 	}
