@@ -1,0 +1,9 @@
+server:  port: 4050  
+
+spring:  application:    name: corporate-customer-service
+  config:    import: configserver:http://localhost:8888  cloud:    bus:      enabled: true  kafka:    bootstrap-servers:    - ${KAFKA_ADDR:http://localhost:9092}
+eureka:  client:    register-with-eureka: true
+    fetch-registry: true
+    service-url:      defaultZone: http://localhost:8761/eureka
+  instance:    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}} 
+    prefer-ip-address: true        
