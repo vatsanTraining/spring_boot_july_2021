@@ -26,7 +26,6 @@ public class ClientController {
 	  
 	  public String getInfoFallback(Exception e) {
 		  
-		  //	  return this.template.getForObject("http://localhost:6066/info", String.class);
 		  
 		  return "This is cached  message";
 

@@ -10,8 +10,13 @@ spring:
       ddl-auto: update
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    show-sql: true    
+    show-sql: true    
 server:
   port: 4042
+
         
-    
+logging:
+  file:
+    name: e://logs//catalog.log    
+  level:
+    '[org.springframework.boot]': off
