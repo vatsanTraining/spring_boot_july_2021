@@ -1,0 +1,31 @@
+server:
+  port: 6565
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      infoService:
+        registerHealthIndicator: true
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        failureRateThreshold: 5
+        minimumNumberOfCalls: 3
+        permittedNumberOfCallsInHalfOpenState: 2
+        slidingWindowSize: 5
+        waitDurationInOpenState: 5s
+        slidingWindowType: COUNT_BASED
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"
+        
+  endpoint:
+    health:
+      show-details: always
+    circuitbreakers:
+      enabled: true
+      
+      
+      
