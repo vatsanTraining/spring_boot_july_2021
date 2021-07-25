@@ -1,0 +1,15 @@
+
+server:
+  port: 7070
+  
+  
+spring:
+  cloud:
+    stream:
+      bindings:
+         highValue:
+           destination: premium
+         normalValue:
+           destination: normal    
+           
+  
