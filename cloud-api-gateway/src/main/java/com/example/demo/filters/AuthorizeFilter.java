@@ -1,6 +1,9 @@
 package com.example.demo.filters;
 
 import org.springframework.cloud.gateway.filter.GatewayFilter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -9,11 +12,10 @@ import org.springframework.web.server.ServerWebExchange;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
 
-import java.util.logging.*;
 @Component
 public class AuthorizeFilter implements GatewayFilter {
 
-	                Logger log = Logger.getGlobal();
+	private static final Logger log = LoggerFactory.getLogger(AuthorizeFilter.class.getName());
 	
 	@Override
 	public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {

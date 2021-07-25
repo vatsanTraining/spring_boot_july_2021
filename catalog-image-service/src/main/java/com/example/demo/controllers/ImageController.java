@@ -2,7 +2,11 @@ package com.example.demo.controllers;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.concurrent.CompletableFuture;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.demo.entity.Image;
 import com.example.demo.repos.ImageRepository;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
@@ -22,6 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 public class ImageController {
 
 	ImageRepository repo;
+	private static final Logger log = LoggerFactory.getLogger(ImageController.class.getName());
 
 	public ImageController(ImageRepository repo) {
 		super();
@@ -70,9 +77,14 @@ public class ImageController {
 	        data = file.getContent();
 	    }
 	        
+	       
+	        
 	        log.info("Fetch Image completed");
 	        
-	    return data;
+	         return data;
+
 	}
+	  
+	 
 }
 
